@@ -1,0 +1,56 @@
+body{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: #f0f8ff;
+}
+
+#game-box{
+    height: 300px;
+    width: 100%;
+    background-color: black;
+    color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+#display{
+    font-size: 24px;
+     border: solid 2px red;
+}
+b{
+    color: #8ca52a;
+}
+i{
+    color: #2a88a5;
+}
+
+b.hit{
+    color: #a52a2a;
+}
+
+#btn-box{
+    display: flex;
+}
+
+.btn{
+    width: 33%;
+    height: 100px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px #fff;
+}
+
+#btn-shoot{
+    background-color: #a52a2a;
+    color: #f0f8ff;
+}
+
+.dir-btn{
+    background-color: rgb(61, 109, 14);
+    color: #f0f8ff;
+}
+
