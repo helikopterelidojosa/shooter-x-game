@@ -34,8 +34,9 @@ function Bullet(row,col){
     display[row-1] =[` `,` `,` `,` `,` `,` `, `<br>`]
 display[row][col] =startBullet;
 if(fire == true){startBullet = `<i>|</i>`}
-if(row+1<4){
-display[row+1] =[` `,` `,` `,` `,` `,` `, `<br>`]}
+if(fire == false){startBullet = ` `}
+// if(row+1<4){
+// display[row+1] =[` `,` `,` `,` `,` `,` `, `<br>`]}
 }
 
 
@@ -48,17 +49,25 @@ display[row+1] =[` `,` `,` `,` `,` `,` `, `<br>`]}
         }
 
         function left(){
-          Myself_Col--;
-          if(Myself_Col < 0){Myself_Col = 0 }
+         
+          display[1] =[` `,` `,` `,` `,` `, `<br>`];
+        display[2] =[` `,` `,` `,` `,` `, `<br>`];
+        display[3] =[` `,` `,` `,` `,` `, `<br>`];
+        Myself_Col--;
+        if(Myself_Col < 0){Myself_Col = 0 }
         }
 
         function right(){
+            display[1] =[` `,` `,` `,` `,` `, `<br>`];
+          display[2] =[` `,` `,` `,` `,` `, `<br>`];
+          display[3] =[` `,` `,` `,` `,` `, `<br>`];
             Myself_Col++;
           if(Myself_Col > 4){Myself_Col = 4 }
-
+         
           }
         
         function firegun(){
+
             fire = true;
         }
 
@@ -92,18 +101,45 @@ Opponent(OPP_Row,OPP_Col);
     
      
     }
+    if(fire === false){
+        display[1] =[` `,` `,` `,` `,` `, `<br>`];
+        
+        display[2] =[` `,` `,` `,` `,` `, `<br>`];
+        display[3] =[` `,` `,` `,` `,` `, `<br>`];
+        shoot= 0;
+        
+       BULLET_Col = Myself_Col;
+      BULLET_Row = Myself_Row-1-shoot; 
+
+     
+    
+     
+    }
 Bullet(BULLET_Row,BULLET_Col);
 
-    if(BULLET_Row == 0&&BULLET_Col==OPP_Col){
-        display[0]=[` `,` `,` `,` `,` `,` `, `<br>`]
-      display[0][BULLET_Col] = `<b class="hit">W</b>`;
-      BULLET_Row=3;
+    if(BULLET_Row < 1&&fire == true){
+        startBullet = `<i>|</i>`;
+        display[0]=[` `,` `,` `,` `,` `,` `,` `, `<br>`];
+        display[0][BULLET_Col] = startBullet;
+        display[0][OPP_Col] = startOpponent;
+        display[1] =[` `,` `,` `,` `,` `, `<br>`];
+        
+        
+        display[2] =[` `,` `,` `,` `,` `, `<br>`];
+        display[3] =[` `,` `,` `,` `,` `, `<br>`];
+        
+        BULLET_Row=3;
       shoot = -1;
       fire = false;
       
+     
     }
 
-    
+    if(fire == true&&BULLET_Row == 0&&BULLET_Col == OPP_Col){
+        display[0] =[` `,` `,` `,` `,` `,` `, `<br>`];
+        display[0][BULLET_Col] = `<i>W</i>`;
+        
+    }
 
 
    
